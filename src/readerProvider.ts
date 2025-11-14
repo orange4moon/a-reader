@@ -703,10 +703,14 @@ export class TxtReaderProvider {
                 chapterNameEl.textContent = '未识别章节';
             }
             
-            // 更新章节列表高亮
+            // 更新章节列表高亮并自动滚动
             document.querySelectorAll('.chapter-item').forEach((item, index) => {
                 if (index === currentChapterIndex) {
                     item.classList.add('active');
+                    // 自动滚动到当前激活的章节
+                    setTimeout(() => {
+                        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
                 } else {
                     item.classList.remove('active');
                 }
@@ -808,6 +812,12 @@ export class TxtReaderProvider {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+        
+        // 初始化 toggle 按钮位置（页面加载时侧边栏是显示的）
+        const initToggle = document.getElementById('sidebar-toggle');
+        if (initToggle) {
+            initToggle.classList.add('sidebar-visible');
         }
         
         // 请求初始数据

@@ -66,12 +66,6 @@
         "key": "ctrl+pageup",
         "mac": "cmd+pageup",
         "when": "aReaderActive"
-      },
-      {
-        "command": "aReader.search",
-        "key": "ctrl+f",
-        "mac": "cmd+f",
-        "when": "aReaderActive"
       }
     ],
     "configuration": {
